@@ -1,6 +1,7 @@
 body {
     background-color: #F0F1D5;
     text-align: center;
+    margin: 0;
 }
 
 /*Nav bar and footer--------------*/
@@ -23,6 +24,15 @@ li a {
     padding: 14px 16px;
     text-decoration: none;
 }
+
+li a:hover:not(.active) {
+    background-color: #2C8693;
+}
+
+.active {
+    background-color: #105187;
+    
+}
 /*Nav bar and footer ends------------------*/
 
 img {
@@ -30,7 +40,25 @@ img {
     width: 200px;
 }
 
+.font_size {
+    font-size: 25px;
+}
+
 .margin {
     margin-bottom: 30px;
 }
 
+
+cite {
+    font-size: 20px;
+}
+
+/*footer only--------------------------------*/
+
+.design {
+    background-color: #7b7777;
+    padding: 10px;
+    height: 25px;
+    text-align: center;
+    width: 100vw;
+}
