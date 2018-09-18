@@ -3,8 +3,8 @@ body {
     text-align: center;
 }
 
-/*Nav bar------------------------*/
-ul {
+/*Nav bar and footer--------------*/
+.navbar {
     list-style-type: none;
     margin: 0;
     padding: 0;
@@ -23,9 +23,14 @@ li a {
     padding: 14px 16px;
     text-decoration: none;
 }
-/*Nav bar ends------------------*/
+/*Nav bar and footer ends------------------*/
 
 img {
     height: 275px;
     width: 200px;
 }
+
+.margin {
+    margin-bottom: 30px;
+}
+
