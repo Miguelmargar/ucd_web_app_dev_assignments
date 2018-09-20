@@ -73,15 +73,15 @@ th, td {
     text-align: left;
 }
 
-#t01 tr:nth-child(even) {
+.t01 tr:nth-child(even) {
     background-color: #eee;
 }
 
-#t01 tr:nth-child(odd) {
+.t01 tr:nth-child(odd) {
    background-color: #fff;
 }
 
-#t01 th {
+.t01 th {
     background-color: black;
     color: white;
 }
