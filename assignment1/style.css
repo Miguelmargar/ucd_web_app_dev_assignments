@@ -34,7 +34,7 @@ li a:hover:not(.active) {
     background-color: #105187;
     
 }
-/*Nav bar and footer ends------------------*/
+/*Main-----------------------------------*/
 
 img {
     height: 275px;
@@ -55,6 +55,35 @@ cite {
 
 .video {
     padding-bottom:20px;
+}
+/*Results table--------------------------*/
+
+table {
+    width:35%;
+    margin-bottom: 30px;
+}
+
+table, th, td {
+    border: 1px solid black;
+    border-collapse: collapse;
+}
+
+th, td {
+    padding: 15px;
+    text-align: left;
+}
+
+#t01 tr:nth-child(even) {
+    background-color: #eee;
+}
+
+#t01 tr:nth-child(odd) {
+   background-color: #fff;
+}
+
+#t01 th {
+    background-color: black;
+    color: white;
 }
 
 /*footer only--------------------------------*/
