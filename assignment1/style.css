@@ -66,16 +66,16 @@ cite {
     width: 450px;
 }
 
-div.gallery:hover {
+.gallery:hover {
     border: 1px solid #777;
 }
 
-div.gallery img {
+.gallery img {
     width: 100%;
     height: 400px;
 }
 
-div.desc {
+.desc {
     padding: 15px;
     text-align: center;
 }
