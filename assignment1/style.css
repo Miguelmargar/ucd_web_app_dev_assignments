@@ -139,3 +139,7 @@ th, td {
 .liwork {
     float: none;
 }
+
+.link:link, .link:visited, .link:hover, .link:active {
+    color: black;
+}
