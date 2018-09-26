@@ -124,3 +124,18 @@ th, td {
     height: 25px;
     text-align: center;
 }
+
+/*Work exp-------------------------------*/
+
+.work {
+    display: inline-block;
+}
+
+#ulwork {
+    list-style-type: none;
+    font-size: 25px;
+}
+
+.liwork {
+    float: none;
+}
