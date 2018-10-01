@@ -116,15 +116,6 @@ th, td {
     color: white;
 }
 
-/*footer only--------------------------------*/
-
-.design {
-    background-color: #7b7777;
-    padding: 10px;
-    height: 25px;
-    text-align: center;
-}
-
 /*Work exp-------------------------------*/
 
 .work {
@@ -143,3 +134,14 @@ th, td {
 .link:link, .link:visited, .link:hover, .link:active {
     color: black;
 }
+
+/*footer only--------------------------------*/
+
+.design {
+    background-color: #7b7777;
+    padding: 10px;
+    height: 25px;
+    text-align: center;
+}
+
+
