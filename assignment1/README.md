@@ -1,4 +1,4 @@
-# Your Project's Name
+# Project's Name
 
 This page is aimed to give the viewer a high level view of myself. It has general information about me such as my education background or work experience. This webpage has 5 main sections: Home, Education, Work Experience, Contact Details and interests.
 
