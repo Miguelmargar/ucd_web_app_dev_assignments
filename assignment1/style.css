@@ -124,7 +124,7 @@ th, td {
     display: inline-block;
 }
 
-#ulwork {
+.ulwork {
     list-style-type: none;
     font-size: 25px;
 }
