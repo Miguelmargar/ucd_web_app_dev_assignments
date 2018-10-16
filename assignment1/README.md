@@ -31,5 +31,5 @@ the float left and float none properties have been used in the lists whereas inl
 - The photos used in this site were obtained from searching in google
 - The navbar has been taken from one of the examples in www.w3schools.com. please see link : https://www.w3schools.com/css/css_navbar.asp
 - The videos have been taken from www.youtube.com
-- The result tables in education.html have been taken from examples in www.w3schools.com. please see link: https://www.w3schools.com/css/css_table.asp
+- The result tables code in education.html has been taken from examples in www.w3schools.com. please see link: https://www.w3schools.com/css/css_table.asp
 
