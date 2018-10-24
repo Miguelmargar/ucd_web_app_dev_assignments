@@ -65,30 +65,43 @@
 
             function displayJSON(myArr) {
                 var nobels = myArr["laureates"];
-                document.getElementById("demo3").innerHTML = nobels[1].firstname;
-
-
+                
 
                 if (parseInt(info1) > parseInt(info2)) {
                     alert("The start date has to  be at least the same as the end date");
                 }
-                else if (parseInt(info1) <= parseInt(info2)){
-                    var output = ""
+                else if (parseInt(info1) <= parseInt(info2)) {
                     for (var i in nobels) {
                         for (var j in nobels[i].prizes) {
-                            if (parseInt(nobels[i].prizes[j].year) >= parseInt(info1) && parseInt(nobels[i].prizes[j].year) <= parseInt(info2) ) {
-                                document.getElementById("demo3").innerHTML +=
-                                "<h2>Nobel Winner details:</h2>" + 
-                                "<p>Name: " + nobels[i].firstname + "</p>" +
-                                "<p>Surname: " + nobels[i].surname + "</p>" + 
-                                "<p>Field of Work: " + nobels[i].prizes[j].category + "</p>" + 
-                                "<p>Year of Price: " + nobels[i].prizes[j].year + "</p>";
+                            for (var k in nobels[i].prizes[j].affiliations) {
+                                
+                                if (parseInt(nobels[i].prizes[j].year) >= parseInt(info1) && parseInt(nobels[i].prizes[j].year) <= parseInt(info2) && info3 == "all") {
+                                    document.getElementById("demo3").innerHTML +=
+                                        "<h2>Nobel Winner details:</h2>" +
+                                        "<p>Name: " + nobels[i].firstname + "</p>" +
+                                        "<p>Surname: " + nobels[i].surname + "</p>" +
+                                        "<p>Field of Work: " + nobels[i].prizes[j].category + "</p>" +
+                                        "<p>Year of Price: " + nobels[i].prizes[j].year + "</p>";    
+                                }
+                                
+                                
+                                else if (parseInt(nobels[i].prizes[j].year) >= parseInt(info1) && parseInt(nobels[i].prizes[j].year) <= parseInt(info2) && info3 !="all") {
+                                        if (nobels[i].prizes[j].category == info3) {
+                                            document.getElementById("demo2").innerHTML = info3;
+                                            document.getElementById("demo3").innerHTML +=
+                                        "<h2>Nobel Winner details:</h2>" +
+                                        "<p>Name: " + nobels[i].firstname + "</p>" +
+                                        "<p>Surname: " + nobels[i].surname + "</p>" +
+                                        "<p>Field of Work: " + nobels[i].prizes[j].category + "</p>" +
+                                        "<p>Year of Price: " + nobels[i].prizes[j].year + "</p>";
+                                        } 
+                                     }
+                                }
                             }
                         }
                     }
                 }
             }
-        }
     </script>
 
 </body>
