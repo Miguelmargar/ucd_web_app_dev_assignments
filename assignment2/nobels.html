@@ -15,9 +15,9 @@
 	<h4>Select years</h4>
 	<form id="info_needed">
 		<p>From*:</p>
-		<input type="numbers" name="from"/>
+		<input type="numbers" name="from" />
 		<p>To*:</p>
-		<input type="numbers" name="to"/>
+		<input type="numbers" name="to" />
 		<p>Field of Work:</p>
 		<select name="category">
             <option value="allcat" selected>All</option>
@@ -332,76 +332,102 @@
 				else if (parseInt(info1) <= parseInt(info2)) {
 					document.getElementById("demo").innerHTML = female.checked
 					document.getElementById("demo2").innerHTML = female.value
-					// loop through all json file structure-------------------------------------------
+// loop through all json file structure--------------------------------------------------------------------
 					for (var i in nobels) {
 						for (var j in nobels[i].prizes) {
 							for (var k in nobels[i].prizes[j].affiliations) {
-								
-								// takes dates and all categories and countries----------------------------
+
+// takes dates and all categories and countries-------------------------------------------------------------
 								if (parseInt(nobels[i].prizes[j].year) >= parseInt(info1) && parseInt(nobels[i].prizes[j].year) <= parseInt(info2) && info3 == "allcat" && info4 == "allcou") {
-										if (male.checked && nobels[i].gender == male.value){
-											document.getElementById("demo3").innerHTML +=
-										"<h2>Nobel Winner details:</h2>" +
-										"<p>Name: " + nobels[i].firstname + "</p>" +
-										"<p>Surname: " + nobels[i].surname + "</p>" +
-										"<p>Country of Birth: " + nobels[i].bornCountry + "</p>" +
-										"<p>Field of Work: " + nobels[i].prizes[j].category + "</p>" +
-										"<p>Year of Price: " + nobels[i].prizes[j].year + "</p>";
-										}
-										else if (female.checked && nobels[i].gender == female.value) {
-											document.getElementById("demo3").innerHTML +=
-										"<h2>Nobel Winner details:</h2>" +
-										"<p>Name: " + nobels[i].firstname + "</p>" +
-										"<p>Surname: " + nobels[i].surname + "</p>" +
-										"<p>Country of Birth: " + nobels[i].bornCountry + "</p>" +
-										"<p>Field of Work: " + nobels[i].prizes[j].category + "</p>" +
-										"<p>Year of Price: " + nobels[i].prizes[j].year + "</p>";
-										}
-										else if (both.checked) {
-											document.getElementById("demo3").innerHTML +=
-										"<h2>Nobel Winner details:</h2>" +
-										"<p>Name: " + nobels[i].firstname + "</p>" +
-										"<p>Surname: " + nobels[i].surname + "</p>" +
-										"<p>Country of Birth: " + nobels[i].bornCountry + "</p>" +
-										"<p>Field of Work: " + nobels[i].prizes[j].category + "</p>" +
-										"<p>Year of Price: " + nobels[i].prizes[j].year + "</p>";
-										}
+									// male search--------------------------------------------
+									if (male.checked && nobels[i].gender == male.value) {
+										document.getElementById("demo3").innerHTML +=
+											"<h2>Nobel Winner details:</h2>" +
+											"<p>Name: " + nobels[i].firstname + "</p>" +
+											"<p>Surname: " + nobels[i].surname + "</p>" +
+											"<p>Country of Birth: " + nobels[i].bornCountry + "</p>" +
+											"<p>Field of Work: " + nobels[i].prizes[j].category + "</p>" +
+											"<p>Year of Price: " + nobels[i].prizes[j].year + "</p>";
+									}
+									// female search----------------------------------------------
+									else if (female.checked && nobels[i].gender == female.value) {
+										document.getElementById("demo3").innerHTML +=
+											"<h2>Nobel Winner details:</h2>" +
+											"<p>Name: " + nobels[i].firstname + "</p>" +
+											"<p>Surname: " + nobels[i].surname + "</p>" +
+											"<p>Country of Birth: " + nobels[i].bornCountry + "</p>" +
+											"<p>Field of Work: " + nobels[i].prizes[j].category + "</p>" +
+											"<p>Year of Price: " + nobels[i].prizes[j].year + "</p>";
+									}
+									// both male and female search----------------------------------
+									else if (both.checked) {
+										document.getElementById("demo3").innerHTML +=
+											"<h2>Nobel Winner details:</h2>" +
+											"<p>Name: " + nobels[i].firstname + "</p>" +
+											"<p>Surname: " + nobels[i].surname + "</p>" +
+											"<p>Country of Birth: " + nobels[i].bornCountry + "</p>" +
+											"<p>Field of Work: " + nobels[i].prizes[j].category + "</p>" +
+											"<p>Year of Price: " + nobels[i].prizes[j].year + "</p>";
+									}
 								}
 
-								// takes dates, all countries and specific category-------------------------
+// takes dates, all countries and specific category-----------------------------------------------------------
 								else if (parseInt(nobels[i].prizes[j].year) >= parseInt(info1) && parseInt(nobels[i].prizes[j].year) <= parseInt(info2) && info3 != "allcat" && info4 == "allcou") {
 									if (nobels[i].prizes[j].category == info3) {
-										document.getElementById("demo3").innerHTML +=
-											"<h2>Nobel Winner details:</h2>" +
-											"<p>Name: " + nobels[i].firstname + "</p>" +
-											"<p>Surname: " + nobels[i].surname + "</p>" +
-											"<p>Country of Birth: " + nobels[i].bornCountry + "</p>" +
-											"<p>Field of Work: " + nobels[i].prizes[j].category + "</p>" +
-											"<p>Year of Price: " + nobels[i].prizes[j].year + "</p>";
+										// male search--------------------------------------------
+										if (male.checked && nobels[i].gender == male.value) {
+											document.getElementById("demo3").innerHTML +=
+												"<h2>Nobel Winner details:</h2>" +
+												"<p>Name: " + nobels[i].firstname + "</p>" +
+												"<p>Surname: " + nobels[i].surname + "</p>" +
+												"<p>Country of Birth: " + nobels[i].bornCountry + "</p>" +
+												"<p>Field of Work: " + nobels[i].prizes[j].category + "</p>" +
+												"<p>Year of Price: " + nobels[i].prizes[j].year + "</p>";
+										}
+										// female search----------------------------------------------
+										else if (female.checked && nobels[i].gender == female.value) {
+											document.getElementById("demo3").innerHTML +=
+												"<h2>Nobel Winner details:</h2>" +
+												"<p>Name: " + nobels[i].firstname + "</p>" +
+												"<p>Surname: " + nobels[i].surname + "</p>" +
+												"<p>Country of Birth: " + nobels[i].bornCountry + "</p>" +
+												"<p>Field of Work: " + nobels[i].prizes[j].category + "</p>" +
+												"<p>Year of Price: " + nobels[i].prizes[j].year + "</p>";
+										}
+										// both male and female search----------------------------------
+										else if (both.checked) {
+											document.getElementById("demo3").innerHTML +=
+												"<h2>Nobel Winner details:</h2>" +
+												"<p>Name: " + nobels[i].firstname + "</p>" +
+												"<p>Surname: " + nobels[i].surname + "</p>" +
+												"<p>Country of Birth: " + nobels[i].bornCountry + "</p>" +
+												"<p>Field of Work: " + nobels[i].prizes[j].category + "</p>" +
+												"<p>Year of Price: " + nobels[i].prizes[j].year + "</p>";
+										}
 									}
-								}
-								// takes dates, all categories and specific country------------------------
-								else if (parseInt(nobels[i].prizes[j].year) >= parseInt(info1) && parseInt(nobels[i].prizes[j].year) <= parseInt(info2) && info3 == "allcat" && info4 != "allcou") {
-									if (nobels[i].bornCountryCode == info4) {
-										document.getElementById("demo3").innerHTML +=
-											"<h2>Nobel Winner details:</h2>" +
-											"<p>Name: " + nobels[i].firstname + "</p>" +
-											"<p>Surname: " + nobels[i].surname + "</p>" +
-											"<p>Country of Birth: " + nobels[i].bornCountry + "</p>" +
-											"<p>Field of Work: " + nobels[i].prizes[j].category + "</p>" +
-											"<p>Year of Price: " + nobels[i].prizes[j].year + "</p>";
+// takes dates, all categories and specific country---------------------------------------------------------
+									else if (parseInt(nobels[i].prizes[j].year) >= parseInt(info1) && parseInt(nobels[i].prizes[j].year) <= parseInt(info2) && info3 == "allcat" && info4 != "allcou") {
+										if (nobels[i].bornCountryCode == info4) {
+											document.getElementById("demo3").innerHTML +=
+												"<h2>Nobel Winner details:</h2>" +
+												"<p>Name: " + nobels[i].firstname + "</p>" +
+												"<p>Surname: " + nobels[i].surname + "</p>" +
+												"<p>Country of Birth: " + nobels[i].bornCountry + "</p>" +
+												"<p>Field of Work: " + nobels[i].prizes[j].category + "</p>" +
+												"<p>Year of Price: " + nobels[i].prizes[j].year + "</p>";
+										}
 									}
-								}
-								// takes dates and specific category and specific country-------------------
-								else if (parseInt(nobels[i].prizes[j].year) >= parseInt(info1) && parseInt(nobels[i].prizes[j].year) < +parseInt(info2) && info3 != "allcat" && info4 != "allcou") {
-									if (nobels[i].prizes[j].category == info3 && nobels[i].bornCountryCode == info4) {
-										document.getElementById("demo3").innerHTML +=
-											"<h2>Nobel Winner details:</h2>" +
-											"<p>Name: " + nobels[i].firstname + "</p>" +
-											"<p>Surname: " + nobels[i].surname + "</p>" +
-											"<p>Country of Birth: " + nobels[i].bornCountry + "</p>" +
-											"<p>Field of Work: " + nobels[i].prizes[j].category + "</p>" +
-											"<p>Year of Price: " + nobels[i].prizes[j].year + "</p>";
+// takes dates and specific category and specific country----------------------------------------------------
+									else if (parseInt(nobels[i].prizes[j].year) >= parseInt(info1) && parseInt(nobels[i].prizes[j].year) < +parseInt(info2) && info3 != "allcat" && info4 != "allcou") {
+										if (nobels[i].prizes[j].category == info3 && nobels[i].bornCountryCode == info4) {
+											document.getElementById("demo3").innerHTML +=
+												"<h2>Nobel Winner details:</h2>" +
+												"<p>Name: " + nobels[i].firstname + "</p>" +
+												"<p>Surname: " + nobels[i].surname + "</p>" +
+												"<p>Country of Birth: " + nobels[i].bornCountry + "</p>" +
+												"<p>Field of Work: " + nobels[i].prizes[j].category + "</p>" +
+												"<p>Year of Price: " + nobels[i].prizes[j].year + "</p>";
+										}
 									}
 								}
 							}
