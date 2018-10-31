@@ -290,6 +290,8 @@
 	</form>
 	<input type="submit" value="Submit" onclick="display()">
 	<h2>This is the information requested:</h2>
+	<h3>For extra information click below:</h3>
+	<input type="submit" value="Submit" onclick="hide_show()">
 
 	<p id="demo"></p>
 	<p id="demo2"></p>
@@ -299,6 +301,9 @@
 	<p id="demo6"></p>
 
 	<script>
+		
+		
+		
 		function display() {
 			var xmlhttp = new XMLHttpRequest();
 			var url = "nobels.json";
@@ -339,6 +344,17 @@
 						"<p>Field of Work: " + nobels[i].prizes[j].category + "</p>" +
 						"<p>Year of Price: " + nobels[i].prizes[j].year + "</p>";
 				}
+				
+				function extra() {
+					document.getElementById("demo3").innerHTML +=
+						"<h3 style='display:none;' id='extra'>Extra Details:</h3>" + 
+						"<p style='display:none;'>Year of Birth: " + nobels[i].born + "</p>" + 
+						"<p style='display:none;'>Year of Death: " + nobels[i].died + "</p>" + 
+						"<p style='display:none;'>City of Birth: " + nobels[i].bornCity + "</p>" + 
+						"<p style='display:none;'>Motivation for price: " + nobels[i].prizes[j].motivation + "</p>" +
+						"<p style='display:none;'>Affiliations: " + nobels[i].prizes[j].affiliations[k].name + "</p>";
+				}
+				
 				clear();
 				
 				// get dates in search
@@ -357,14 +373,17 @@
 									// male search--------------------------------------------
 									if (male.checked && nobels[i].gender == male.value) {
 										html();
+										extra();
 									}
 									// female search----------------------------------------------
 									else if (female.checked && nobels[i].gender == female.value) {
 										html();
+										extra();
 									}
 									// both male and female search----------------------------------
 									else if (both.checked) {
 										html();
+										extra();
 									}
 								}
 
@@ -374,14 +393,17 @@
 										// male search--------------------------------------------
 										if (male.checked && nobels[i].gender == male.value) {
 											html();
+											extra();
 										}
 										// female search----------------------------------------------
 										else if (female.checked && nobels[i].gender == female.value) {
 											html();
+											extra();
 										}
 										// both male and female search----------------------------------
 										else if (both.checked) {
 											html();
+											extra();
 										}
 									}
 								}
@@ -392,14 +414,17 @@
 											// male search--------------------------------------------
 											if (male.checked && nobels[i].gender == male.value) {
 												html();
+												extra();
 											}
 											// female search----------------------------------------------
 											else if (female.checked && nobels[i].gender == female.value) {
 												html();
+												extra();
 											}
 											// both male and female search----------------------------------
 											else if (both.checked) {
 												html();
+												extra();
 											}
 										}
 									}
@@ -409,14 +434,17 @@
 												// male search--------------------------------------------
 												if (male.checked && nobels[i].gender == male.value) {
 													html();
+													extra();
 												}
 												// female search----------------------------------------------
 												else if (female.checked && nobels[i].gender == female.value) {
 													html();
+													extra();
 												}
 												// both male and female search----------------------------------
 												else if (both.checked) {
 													html();
+													extra();
 												}
 											}
 										}
@@ -426,6 +454,14 @@
 						}
 					}
 				}
+		
+		function hide_show() {
+			if (document.getElementById("extra").style.display == "none") {
+				document.getElementById("extra").style.display = "block";
+			} else {
+				document.getElementById("extra").style.display = "none";
+			}
+		}
 		
 	</script>
 
