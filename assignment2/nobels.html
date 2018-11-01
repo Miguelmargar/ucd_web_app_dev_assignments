@@ -15,9 +15,9 @@
 	<h4>Select years</h4>
 	<form id="info_needed">
 		<p>From*:</p>
-		<input type="numbers" name="from" />
+		<input type="numbers" name="from" value="1950" />
 		<p>To*:</p>
-		<input type="numbers" name="to" />
+		<input type="numbers" name="to" value="1960" />
 		<p>Field of Work:</p>
 		<select name="category">
             <option value="allcat" selected>All</option>
@@ -296,14 +296,23 @@
 	<p id="demo"></p>
 	<p id="demo2"></p>
 	<div id="demo3"></div>
-	<p id="demo4"></p>
-	<p id="demo5"></p>
-	<p id="demo6"></p>
 
 	<script>
 		
+		// Hide / show extra information required--------------------------------
+		function hide_show() {
+				var winners = document.getElementsByClassName("extra");
+				for (var i = 0; i < winners.length; i++) {
+					if (winners[i].style.display === "none") {
+					winners[i].style.display = "block";
+				} else {
+					winners[i].style.display = "none";
+						}	
+					}
+				}
 		
-		
+
+		// MAIN FUNCTION-----------------------------------------------------------------------------
 		function display() {
 			var xmlhttp = new XMLHttpRequest();
 			var url = "nobels.json";
@@ -332,43 +341,49 @@
 				function clear() {
 					document.getElementById("demo3").innerHTML = "";
 				}
-				var nobels = myArr["laureates"];
-				
+
 				// Information to be printed-----------------------------------
 				function html() {
 					document.getElementById("demo3").innerHTML +=
+						"<div class='html'>" + 
 						"<h2>Nobel Winner details:</h2>" +
 						"<p>Name: " + nobels[i].firstname + "</p>" +
 						"<p>Surname: " + nobels[i].surname + "</p>" +
 						"<p>Country of Birth: " + nobels[i].bornCountry + "</p>" +
 						"<p>Field of Work: " + nobels[i].prizes[j].category + "</p>" +
-						"<p>Year of Price: " + nobels[i].prizes[j].year + "</p>";
+						"<p>Year of Price: " + nobels[i].prizes[j].year + "</p>" + 
+						"</div>";
 				}
-				
+
+				// extra information to be displayed--------------------------------------------------
 				function extra() {
 					document.getElementById("demo3").innerHTML +=
-						"<h3 style='display:none;' id='extra'>Extra Details:</h3>" + 
-						"<p style='display:none;'>Year of Birth: " + nobels[i].born + "</p>" + 
-						"<p style='display:none;'>Year of Death: " + nobels[i].died + "</p>" + 
-						"<p style='display:none;'>City of Birth: " + nobels[i].bornCity + "</p>" + 
-						"<p style='display:none;'>Motivation for price: " + nobels[i].prizes[j].motivation + "</p>" +
-						"<p style='display:none;'>Affiliations: " + nobels[i].prizes[j].affiliations[k].name + "</p>";
+						"<div style='display:none;' class='extra'>" + 
+						"<h3 style='display:none;' class='extra'>Extra Details:</h3>" +
+						"<p style='display:none;' class='extra'>Year of Birth: " + nobels[i].born + "</p>" +
+						"<p style='display:none;' class='extra'>Year of Death: " + nobels[i].died + "</p>" +
+						"<p style='display:none;' class='extra'>City of Birth: " + nobels[i].bornCity + "</p>" +
+						"<p style='display:none;' class='extra'>Motivation for price: " + nobels[i].prizes[j].motivation + "</p>" +
+						"<p style='display:none;' class='extra'>Affiliations: " + nobels[i].prizes[j].affiliations[k].name + "</p>" + 
+						"</div>";
 				}
-				
+
+				var nobels = myArr["laureates"];
 				clear();
-				
+
 				// get dates in search
 				if (parseInt(info1) > parseInt(info2)) {
 					alert("The start date has to  be at least the same as the end date");
 				}
 				else if (parseInt(info1) <= parseInt(info2)) {
-					
+
+
 // loop through all json file structure--------------------------------------------------------------------
 					for (var i in nobels) {
 						for (var j in nobels[i].prizes) {
 							for (var k in nobels[i].prizes[j].affiliations) {
-								
-// takes dates and all categories and all countries-----------------------------------------------------------
+
+								// takes dates and all categories and all countries-----------------------------------------------------------
 								if (parseInt(nobels[i].prizes[j].year) >= parseInt(info1) && parseInt(nobels[i].prizes[j].year) <= parseInt(info2) && info3 == "allcat" && info4 == "allcou") {
 									// male search--------------------------------------------
 									if (male.checked && nobels[i].gender == male.value) {
@@ -407,46 +422,44 @@
 										}
 									}
 								}
-								
+
 // takes dates, all categories and specific country---------------------------------------------------------
-									else if (parseInt(nobels[i].prizes[j].year) >= parseInt(info1) && parseInt(nobels[i].prizes[j].year) <= parseInt(info2) && info3 == "allcat" && info4 != "allcou") {
-										if (nobels[i].bornCountryCode == info4) {
-											// male search--------------------------------------------
-											if (male.checked && nobels[i].gender == male.value) {
-												html();
-												extra();
-											}
-											// female search----------------------------------------------
-											else if (female.checked && nobels[i].gender == female.value) {
-												html();
-												extra();
-											}
-											// both male and female search----------------------------------
-											else if (both.checked) {
-												html();
-												extra();
-											}
+								else if (parseInt(nobels[i].prizes[j].year) >= parseInt(info1) && parseInt(nobels[i].prizes[j].year) <= parseInt(info2) && info3 == "allcat" && info4 != "allcou") {
+									if (nobels[i].bornCountryCode == info4) {
+										// male search--------------------------------------------
+										if (male.checked && nobels[i].gender == male.value) {
+											html();
+											extra();
+										}
+										// female search----------------------------------------------
+										else if (female.checked && nobels[i].gender == female.value) {
+											html();
+											extra();
+										}
+										// both male and female search----------------------------------
+										else if (both.checked) {
+											html();
+											extra();
 										}
 									}
+								}
 // takes dates and specific category and specific country----------------------------------------------------
-										else if (parseInt(nobels[i].prizes[j].year) >= parseInt(info1) && parseInt(nobels[i].prizes[j].year) < +parseInt(info2) && info3 != "allcat" && info4 != "allcou") {
-											if (nobels[i].prizes[j].category == info3 && nobels[i].bornCountryCode == info4) {
-												// male search--------------------------------------------
-												if (male.checked && nobels[i].gender == male.value) {
-													html();
-													extra();
-												}
-												// female search----------------------------------------------
-												else if (female.checked && nobels[i].gender == female.value) {
-													html();
-													extra();
-												}
-												// both male and female search----------------------------------
-												else if (both.checked) {
-													html();
-													extra();
-												}
-											}
+								else if (parseInt(nobels[i].prizes[j].year) >= parseInt(info1) && parseInt(nobels[i].prizes[j].year) < +parseInt(info2) && info3 != "allcat" && info4 != "allcou") {
+									if (nobels[i].prizes[j].category == info3 && nobels[i].bornCountryCode == info4) {
+										// male search--------------------------------------------
+										if (male.checked && nobels[i].gender == male.value) {
+											html();
+											extra();
+										}
+										// female search----------------------------------------------
+										else if (female.checked && nobels[i].gender == female.value) {
+											html();
+											extra();
+										}
+										// both male and female search----------------------------------
+										else if (both.checked) {
+											html();
+											extra();
 										}
 									}
 								}
@@ -454,12 +467,6 @@
 						}
 					}
 				}
-		
-		function hide_show() {
-			if (document.getElementById("extra").style.display == "none") {
-				document.getElementById("extra").style.display = "block";
-			} else {
-				document.getElementById("extra").style.display = "none";
 			}
 		}
 		
