@@ -23,17 +23,18 @@
 		</div>
 
 		<form id="info_needed">
-			<div>
+			<div class="overall">
+			<div class="search_options">
 				<p>From*:</p>
-				<input type="numbers" name="from" value="1950" />
+				<input type="numbers" name="from" onfocus="this.value=''" value="1950"/>
 			</div>
-			<div>
+			<div class="search_options">
 				<p>To*:</p>
-				<input type="numbers" name="to" value="1960" />
+				<input type="numbers" name="to" onfocus="this.value=''" value="1960"/>
 			</div>
-			<div>
+			<div class="search_options">
 				<p>Field of Work:</p>
-				<select name="category">
+				<select name="category" maxlength="20">
 		            <option value="allcat" selected>All</option>
 		            <option value="physics">Physics</option>
 		            <option value="chemistry">Chemistry</option>
@@ -43,7 +44,7 @@
 		            <option value="economics">Economics</option>
         		</select>
 			</div>
-			<div>
+			<div class="search_options">
 				<p>Country of Birth:</p>
 				<select>
 				    <option value="allcou" selected>All</option>        
@@ -298,21 +299,34 @@
 					<option value="ZW">Zimbabwe</option>
 				</select>
 			</div>
-			<br>
-			<br>
+			</div>
 			<div>
 				<h2 class="search_header">Additional Search Options</h2>
 			</div>
-			<input type="radio" name="gender" value="male"> Male<br>
-			<input type="radio" name="gender" value="female"> Female<br>
-			<input type="radio" name="gender" value="both" checked> Both<br>
+			<div class="overall2">
+				<div id="search_options">
+					<input type="radio" name="gender" value="male"> Male<br>
+				</div>
+				<div class="search_options">
+					<input type="radio" name="gender" value="female"> Female<br>
+				</div>
+				<div class="search_options">
+					<input type="radio" name="gender" value="both" checked> Both<br>
+				</div>
+			</div>
 			<br>
 		</form>
-		<input type="submit" value="Submit" onclick="display()">
-		<h2>This is the information requested:</h2>
-		<h3>For extra information click below:</h3>
-		<input type="submit" value="Submit" onclick="hide_show()">
-
+			<div class="overall">
+				<input type="submit" value="Submit" onclick="display()">
+			</div>
+			<div class="overall">
+				<h3>For extra information click below:</h3>
+					<input type="submit" value="Submit" onclick="hide_show()">
+			</div>
+			<div class="overall">
+				<h2>This is the information requested:</h2>
+			</div>
+			
 		<p id="demo"></p>
 		<p id="demo2"></p>
 		<div id="demo3"></div>
