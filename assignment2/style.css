@@ -1,0 +1,21 @@
+body {
+    font-family: 'Cinzel', serif;
+}
+
+/*Header---------------------------------------------*/
+
+header {
+    background-image: url(images/coin.jpg);
+    background-repeat: no-repeat;
+    background-size: 100% 800px;
+    height: 800px;
+    width: 100%
+}
+
+/*Main-----------------------------------------------*/
+
+.search_header {
+    width: 100%;
+    text-align: center;
+    
+}
