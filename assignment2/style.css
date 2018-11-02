@@ -42,3 +42,14 @@ header {
     display: inline-block;
     text-align: center;
 }
+
+.search_results {
+    border: 1px solid black;
+    display: inline-block;
+    margin: 20px;
+    text-justify: inter-word;
+    text-align: center;
+    width: 25%;
+    max-height: 700px;
+    min-height: 250px;
+}

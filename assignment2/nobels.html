@@ -327,10 +327,9 @@
 				<h2>This is the information requested:</h2>
 			</div>
 			
-		<p id="demo"></p>
-		<p id="demo2"></p>
-		<div id="demo3"></div>
-
+			<div class="overall2">
+				<div id="people"></div>
+			</div>
 	</main>
 
 	<script>
@@ -375,26 +374,19 @@
 			function displayJSON(myArr) {
 				// clear previous search----------------------------
 				function clear() {
-					document.getElementById("demo3").innerHTML = "";
+					document.getElementById("people").innerHTML = "";
 				}
 
 				// Information to be printed-----------------------------------
 				function html() {
-					document.getElementById("demo3").innerHTML +=
-						"<div class='html'>" +
+					document.getElementById("people").innerHTML +=
+						"<div class='html search_results'>" +
 						"<h2>Nobel Winner details:</h2>" +
 						"<p>Name: " + nobels[i].firstname + "</p>" +
 						"<p>Surname: " + nobels[i].surname + "</p>" +
 						"<p>Country of Birth: " + nobels[i].bornCountry + "</p>" +
 						"<p>Field of Work: " + nobels[i].prizes[j].category + "</p>" +
 						"<p>Year of Price: " + nobels[i].prizes[j].year + "</p>" +
-						"</div>";
-				}
-
-				// extra information to be displayed--------------------------------------------------
-				function extra() {
-					document.getElementById("demo3").innerHTML +=
-						"<div style='display:none;' class='extra'>" +
 						"<h3 style='display:none;' class='extra'>Extra Details:</h3>" +
 						"<p style='display:none;' class='extra'>Year of Birth: " + nobels[i].born + "</p>" +
 						"<p style='display:none;' class='extra'>Year of Death: " + nobels[i].died + "</p>" +
@@ -402,7 +394,11 @@
 						"<p style='display:none;' class='extra'>Motivation for price: " + nobels[i].prizes[j].motivation + "</p>" +
 						"<p style='display:none;' class='extra'>Affiliations: " + nobels[i].prizes[j].affiliations[k].name + "</p>" +
 						"</div>";
+						
+						
+						
 				}
+
 
 				var nobels = myArr["laureates"];
 				clear();
@@ -424,17 +420,14 @@
 									// male search--------------------------------------------
 									if (male.checked && nobels[i].gender == male.value) {
 										html();
-										extra();
 									}
 									// female search----------------------------------------------
 									else if (female.checked && nobels[i].gender == female.value) {
 										html();
-										extra();
 									}
 									// both male and female search----------------------------------
 									else if (both.checked) {
 										html();
-										extra();
 									}
 								}
 
@@ -444,17 +437,14 @@
 										// male search--------------------------------------------
 										if (male.checked && nobels[i].gender == male.value) {
 											html();
-											extra();
 										}
 										// female search----------------------------------------------
 										else if (female.checked && nobels[i].gender == female.value) {
 											html();
-											extra();
 										}
 										// both male and female search----------------------------------
 										else if (both.checked) {
 											html();
-											extra();
 										}
 									}
 								}
@@ -465,17 +455,14 @@
 										// male search--------------------------------------------
 										if (male.checked && nobels[i].gender == male.value) {
 											html();
-											extra();
 										}
 										// female search----------------------------------------------
 										else if (female.checked && nobels[i].gender == female.value) {
 											html();
-											extra();
 										}
 										// both male and female search----------------------------------
 										else if (both.checked) {
 											html();
-											extra();
 										}
 									}
 								}
@@ -485,17 +472,14 @@
 										// male search--------------------------------------------
 										if (male.checked && nobels[i].gender == male.value) {
 											html();
-											extra();
 										}
 										// female search----------------------------------------------
 										else if (female.checked && nobels[i].gender == female.value) {
 											html();
-											extra();
 										}
 										// both male and female search----------------------------------
 										else if (both.checked) {
 											html();
-											extra();
 										}
 									}
 								}
