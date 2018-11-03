@@ -5,12 +5,21 @@ body {
 
 /*Header---------------------------------------------*/
 
-header {
+.header {
     background-image: url(images/coin.jpg);
     background-repeat: no-repeat;
     background-size: 100% 800px;
     height: 800px;
+    position: relative;
     width: 100%
+}
+
+.intro {
+    color: white;
+    position: absolute;
+    text-align: center;
+    top: 20px;
+    left: 20px;
 }
 
 /*Main-----------------------------------------------*/
@@ -61,8 +70,42 @@ header {
     width: 100%;
 }
 
-.separate_winners {
+.separate_inside_winners {
     background-image: url(images/a.jpg);
     height: 25px;
     width: 100%;
+    padding-bottom: 0;
+}
+
+.details {
+    font-weight: bolder;
+}
+
+.extra {
+    display: none;
+}
+
+.attribute {
+    font-size: 22px;
+}
+
+.button {
+    font-size: 20px;
+    width: 100px;
+    height: 27px;
+    border: 1px solid black;
+}
+
+.separate_end {
+    background-image: url(images/a.jpg);
+    height: 50px;
+    position: relative;
+    width: 100%;
+}
+
+.mig {
+    color: white;
+    position: absolute;
+    top: 0px;
+    left: 10px;
 }

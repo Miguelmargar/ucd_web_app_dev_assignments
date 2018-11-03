@@ -14,6 +14,12 @@
 
 <body>
 	<header>
+		<div class="header">
+			<div class="intro">
+				<h1>NOBEL PRIZE WINNERS</h1>
+				<h2>Search Engine</h2>
+			</div>
+		</div>
 	</header>
 
 	<main>
@@ -30,7 +36,7 @@
 			</div>
 			<div class="search_options">
 				<p>To*:</p>
-				<input type="numbers" name="to" onfocus="this.value=''" value="1960"/>
+				<input type="numbers" name="to" onfocus="this.value=''" value="1951"/>
 			</div>
 			<div class="search_options">
 				<p>Field of Work:</p>
@@ -318,12 +324,12 @@
 		</form>
 		
 			<div class="overall">
-				<input type="submit" value="Submit" onclick="display()">
+				<input class="button" type="submit" value="Search" onclick="display()">
 			</div>
 			
 			<div class="overall">
 				<h3>For extra information click below:</h3>
-					<input type="submit" value="Submit" onclick="hide_show()">
+					<input class="button" type="submit" value="Extra Info" onclick="hide_show()">
 			</div>
 			
 			<div class="separate"></div>
@@ -336,8 +342,14 @@
 			<div class="overall2">
 				<div id="people"></div>
 			</div>
+<!--Footer---------------------------------------------------------------------------->
+	<footer>
+		<div class="separate_end">
+			<p class="mig">design by Miguel Martinez &copy</p>
+		</div>
+		
+	</footer>
 			
-			<div class="separate"></div>
 	</main>
 
 	<script>
@@ -390,18 +402,18 @@
 					document.getElementById("people").innerHTML +=
 						"<div class='html search_results'>" +
 						"<h2>Nobel Winner details:</h2>" +
-						"<p>Name: " + nobels[i].firstname + "</p>" +
-						"<p>Surname: " + nobels[i].surname + "</p>" +
-						"<p>Country of Birth: " + nobels[i].bornCountry + "</p>" +
-						"<p>Field of Work: " + nobels[i].prizes[j].category + "</p>" +
-						"<p>Year of Price: " + nobels[i].prizes[j].year + "</p>" +
-						"<h3 style='display:none;' class='extra'>Extra Details:</h3>" +
-						"<p style='display:none;' class='extra'>Year of Birth: " + nobels[i].born + "</p>" +
-						"<p style='display:none;' class='extra'>Year of Death: " + nobels[i].died + "</p>" +
-						"<p style='display:none;' class='extra'>City of Birth: " + nobels[i].bornCity + "</p>" +
-						"<p style='display:none;' class='extra'>Motivation for price: " + nobels[i].prizes[j].motivation + "</p>" +
-						"<p style='display:none;' class='extra'>Affiliations: " + nobels[i].prizes[j].affiliations[k].name + "</p>" +
-						"<div class='separate_winners'></div>" + 
+						"<p><span class='attribute'>Name: </span>" + nobels[i].firstname + "</p>" +
+						"<p><span class='attribute'>Surname: </span>" + nobels[i].surname + "</p>" +
+						"<p><span class='attribute'>Country of Birth: </span>" + nobels[i].bornCountry + "</p>" +
+						"<p><span class='attribute'>Field of Work: </span>" + nobels[i].prizes[j].category + "</p>" +
+						"<p><span class='attribute'>Year of Price: </span>" + nobels[i].prizes[j].year + "</p>" +
+						"<h2 class='extra'>Extra Details:</h2>" +
+						"<p class='extra'><span class='attribute'>Year of Birth: </span>" + nobels[i].born + "</p>" +
+						"<p class='extra'><span class='attribute'>Year of Death: </span>" + nobels[i].died + "</p>" +
+						"<p class='extra'><span class='attribute'>City of Birth: </span>" + nobels[i].bornCity + "</p>" +
+						"<p class='extra'><span class='attribute'>Motivation for price: </span>" + nobels[i].prizes[j].motivation + "</p>" +
+						"<p class='extra'><span class='attribute'>Affiliations: </span>" + nobels[i].prizes[j].affiliations[k].name + "</p>" +
+						"<div class='separate_inside_winners'></div>" + 
 						"</div>";
 				}
 
