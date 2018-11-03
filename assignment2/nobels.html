@@ -327,11 +327,6 @@
 				<input class="button" type="submit" value="Search" onclick="display()">
 			</div>
 			
-			<div class="overall">
-				<h3>For extra information click below:</h3>
-					<input class="button" type="submit" value="Extra Info" onclick="hide_show()">
-			</div>
-			
 			<div class="separate"></div>
 			
 			<div class="overall">
@@ -359,12 +354,11 @@
 			for (var i = 0; i < winners.length; i++) {
 				if (winners[i].style.display === "none") {
 					winners[i].style.display = "block";
-				}
-				else {
-					winners[i].style.display = "none";
+					} else {
+						winners[i].style.display = "none";
+					}
 				}
 			}
-		}
 
 
 		// MAIN FUNCTION-----------------------------------------------------------------------------
@@ -398,7 +392,7 @@
 				}
 
 				// Information to be printed-----------------------------------
-				function html() {
+				function html(winner) {
 					document.getElementById("people").innerHTML +=
 						"<div class='html search_results'>" +
 						"<h2>Nobel Winner details:</h2>" +
@@ -413,7 +407,7 @@
 						"<p class='extra'><span class='attribute'>City of Birth: </span>" + nobels[i].bornCity + "</p>" +
 						"<p class='extra'><span class='attribute'>Motivation for price: </span>" + nobels[i].prizes[j].motivation + "</p>" +
 						"<p class='extra'><span class='attribute'>Affiliations: </span>" + nobels[i].prizes[j].affiliations[k].name + "</p>" +
-						"<div class='separate_inside_winners'></div>" + 
+						"<div class='separate_inside_winners'><input type='submit' class='extra_button' value='Extra Info' onclick='hide_show()'></div>" + 
 						"</div>";
 				}
 
@@ -441,11 +435,11 @@
 									}
 									// female search----------------------------------------------
 									else if (female.checked && nobels[i].gender == female.value) {
-										html();
+										html(i);
 									}
 									// both male and female search----------------------------------
 									else if (both.checked) {
-										html();
+										html(i);
 									}
 								}
 

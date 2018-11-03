@@ -55,6 +55,7 @@ body {
 
 .search_results {
     border: 1px solid black;
+    border-radius: 4px;
     display: inline-block;
     margin: 20px;
     text-justify: inter-word;
@@ -75,6 +76,14 @@ body {
     height: 25px;
     width: 100%;
     padding-bottom: 0;
+}
+
+.extra_button {
+    background: inherit;
+    color: white;
+    height: inherit;
+    width: 100%;
+    
 }
 
 .details {
