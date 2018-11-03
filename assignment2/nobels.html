@@ -21,7 +21,7 @@
 			<h1>NOBEL PRIZE WINNERS search</h1>
 			<h2>Search Options</h2>
 		</div>
-
+<!--Search fields------------------------------------------------------------------------------->
 		<form id="info_needed">
 			<div class="overall">
 			<div class="search_options">
@@ -316,20 +316,28 @@
 			</div>
 			<br>
 		</form>
+		
 			<div class="overall">
 				<input type="submit" value="Submit" onclick="display()">
 			</div>
+			
 			<div class="overall">
 				<h3>For extra information click below:</h3>
 					<input type="submit" value="Submit" onclick="hide_show()">
 			</div>
+			
+			<div class="separate"></div>
+			
 			<div class="overall">
 				<h2>This is the information requested:</h2>
 			</div>
-			
+
+<!--Display search results--------------------------------------------------------->
 			<div class="overall2">
 				<div id="people"></div>
 			</div>
+			
+			<div class="separate"></div>
 	</main>
 
 	<script>
@@ -393,10 +401,8 @@
 						"<p style='display:none;' class='extra'>City of Birth: " + nobels[i].bornCity + "</p>" +
 						"<p style='display:none;' class='extra'>Motivation for price: " + nobels[i].prizes[j].motivation + "</p>" +
 						"<p style='display:none;' class='extra'>Affiliations: " + nobels[i].prizes[j].affiliations[k].name + "</p>" +
+						"<div class='separate_winners'></div>" + 
 						"</div>";
-						
-						
-						
 				}
 
 

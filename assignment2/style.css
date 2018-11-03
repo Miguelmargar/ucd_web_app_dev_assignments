@@ -1,5 +1,6 @@
 body {
     font-family: 'Cinzel', serif;
+    font-weight: bold;
 }
 
 /*Header---------------------------------------------*/
@@ -52,4 +53,16 @@ header {
     width: 25%;
     max-height: 700px;
     min-height: 250px;
+}
+
+.separate {
+    background-image: url(images/a.jpg);
+    height: 25px;
+    width: 100%;
+}
+
+.separate_winners {
+    background-image: url(images/a.jpg);
+    height: 25px;
+    width: 100%;
 }
