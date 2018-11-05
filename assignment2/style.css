@@ -1,6 +1,8 @@
 body {
+    margin: 0;
     font-family: 'Cinzel', serif;
     font-weight: bold;
+    /*width: 100%;*/
 }
 
 /*Header---------------------------------------------*/
@@ -18,8 +20,18 @@ body {
     color: white;
     position: absolute;
     text-align: center;
-    top: 20px;
-    left: 20px;
+    top: 60px;
+    left: 70px;
+}
+
+.description {
+    color: white;
+    position: absolute;
+    text-align: justify;
+    top: 220px;
+    left: 150px;
+    width: 200px;
+    
 }
 
 /*Main-----------------------------------------------*/
@@ -36,6 +48,9 @@ body {
     width: 100%;
 }
 
+select {
+    padding: 2px 1px;
+}
 
 .search_header {
     width: 100%;
@@ -87,7 +102,11 @@ body {
     color: white;
     height: inherit;
     width: 100%;
-    
+}
+
+.extra_button:hover {
+    opacity: 0.5;
+    color: yellow;
 }
 
 .details {

@@ -6,9 +6,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta http-equiv="X-UA-Compatible" content="ie=edge">
 	<link href="https://fonts.googleapis.com/css?family=Cinzel" rel="stylesheet">
-	<link rel="stylesheet" href="style.css" type="text/css" />
-	<!--<script type="text/javascript" src="nobels.json"></script>-->
-	<!--<script type="text/javascript" src="nobels.js"></script>-->
+	<link rel="stylesheet" href="style.css" type="text/css"/>
 	<title>Noble Prize Winners</title>
 </head>
 
@@ -18,6 +16,11 @@
 			<div class="intro">
 				<h1>NOBEL PRIZE WINNERS</h1>
 				<h2>Search Engine</h2>
+			</div>
+			<div class="description">
+				<p>This Website allows you to search all the Nobel Prize winners from 1901 to 2017. Please choose the years that you require and if you'd like you can filter your search by prize category and country of birth of the prize winners. Additionally once you make your initial search you may filter your search further by gender.</p>
+				<br>
+				<p>Hope you enjoy your search!</p>
 			</div>
 		</div>
 	</header>
@@ -32,11 +35,11 @@
 			<div class="overall">
 			<div class="search_options">
 				<p>From*:</p>
-				<input type="numbers" name="from" onfocus="this.value=''" value="1900"/>
+				<input type="numbers" name="from" onfocus="this.value=''"/>
 			</div>
 			<div class="search_options">
 				<p>To*:</p>
-				<input type="numbers" name="to" onfocus="this.value=''" value="2018"/>
+				<input type="numbers" name="to" onfocus="this.value=''"/>
 			</div>
 			<div class="search_options">
 				<p>Field of Work:</p>
@@ -312,13 +315,13 @@
 				</div>
 				<div class="overall2">
 					<div id="search_options">
-						<input type="radio" name="gender" value="male"> Male<br>
+						<input type="radio" name="gender" value="male">Male<br>
 					</div>
 					<div class="search_options">
-						<input type="radio" name="gender" value="female"> Female<br>
+						<input type="radio" name="gender" value="female">Female<br>
 					</div>
 					<div class="search_options">
-						<input type="radio" name="gender" value="both" checked> Both<br>
+						<input type="radio" name="gender" value="both" checked>Both<br>
 					</div>
 				</div>
 			</div>
@@ -418,8 +421,8 @@
 				if (parseInt(info1) > parseInt(info2)) {
 					alert("The start date has to  be at least the same as the end date, Please try again!");
 				}
-				else if (parseInt(info1) < 1900 || parseInt(info2) > 2018) {
-					alert("The date range available is from 1900 to 2018, Please try again!");
+				else if (parseInt(info1) < 1901 || parseInt(info2) > 2017) {
+					alert("The date range available is from 1901 to 2017, Please try again!");
 				}
 				else if (parseInt(info1) <= parseInt(info2)) {
 					// loop through all json file structure--------------------------------------------------------------------
