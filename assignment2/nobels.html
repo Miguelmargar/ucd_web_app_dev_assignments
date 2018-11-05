@@ -306,7 +306,7 @@
 				</select>
 			</div>
 			</div>
-			<div class="extra">
+			<div id="extra">
 				<div>
 					<h2 class="search_header">Additional Search Options</h2>
 				</div>
@@ -385,6 +385,11 @@
 				function clear() {
 					document.getElementById("people").innerHTML = "";
 				}
+				
+				function show() {
+					document.getElementById("extra_button").style.display = "block";
+				}
+				
 				// Information to be printed-----------------------------------
 				function html(arg) {
 					document.getElementById("people").innerHTML +=
@@ -408,13 +413,14 @@
 				}
 				var nobels = myArr["laureates"];
 				clear();
-				// get dates in search
+				
+				// get dates in search--------------------------------------------------------------
 				if (parseInt(info1) > parseInt(info2)) {
 					alert("The start date has to  be at least the same as the end date");
 				}
 				else if (parseInt(info1) <= parseInt(info2)) {
 					// loop through all json file structure--------------------------------------------------------------------
-					var count = 0;
+					var count = 1;
 					for (var i in nobels) {
 						for (var j in nobels[i].prizes) {
 							for (var k in nobels[i].prizes[j].affiliations) {

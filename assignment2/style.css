@@ -98,6 +98,10 @@ body {
     display: none;
 }
 
+#extra_button {
+    display: none;
+}
+
 .attribute {
     font-size: 22px;
 }
