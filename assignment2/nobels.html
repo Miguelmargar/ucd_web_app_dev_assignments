@@ -306,7 +306,7 @@
 				</select>
 			</div>
 			</div>
-			<div id="extra">
+			<div id="extra_button">
 				<div>
 					<h2 class="search_header">Additional Search Options</h2>
 				</div>
@@ -381,7 +381,7 @@
 			var both = document.getElementById("info_needed").elements[6];
 			
 			function displayJSON(myArr) {
-				// clear previous search----------------------------
+				// clear previous search-------------------------------------------
 				function clear() {
 					document.getElementById("people").innerHTML = "";
 				}
@@ -420,7 +420,7 @@
 				}
 				else if (parseInt(info1) <= parseInt(info2)) {
 					// loop through all json file structure--------------------------------------------------------------------
-					var count = 1;
+					var count = 0;
 					for (var i in nobels) {
 						for (var j in nobels[i].prizes) {
 							for (var k in nobels[i].prizes[j].affiliations) {
@@ -506,6 +506,7 @@
 						}
 					}
 				}
+				show();
 			}
 		}
 	</script>
