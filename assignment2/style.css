@@ -53,6 +53,10 @@ body {
     text-align: center;
 }
 
+#none {
+    display: none;
+}
+
 .search_results {
     border: 1px solid black;
     border-radius: 4px;
