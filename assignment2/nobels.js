@@ -9,6 +9,7 @@ function hide_show(arg) {
 	
 // MAIN FUNCTION-----------------------------------------------------------------------------
 function display() {
+	// Read file (code taken from web app dev leactures)-------------------------------------
 	var xmlhttp = new XMLHttpRequest();
 	var url = "nobels.json";
 	xmlhttp.onreadystatechange = function() {

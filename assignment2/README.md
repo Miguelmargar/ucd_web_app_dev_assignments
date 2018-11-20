@@ -27,3 +27,4 @@ Each of the winners displayed has a button which if pressed displays further inf
 - The photos used in this site were obtained from searching in google
 - The JSON file was given to me in the assignment material
 - The font was taken from google fonts
+- List of countries in html obtained from: https://www.freeformatter.com/iso-country-list-html-select.html
