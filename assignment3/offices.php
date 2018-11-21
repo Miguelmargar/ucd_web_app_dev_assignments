@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="style.css" type="text/css" />
     <title>Document</title>
 </head>
 <body>
@@ -14,7 +15,7 @@
     <main>
         <?php
         echo "<table>";
-        echo "<tr><th>City</th><th>Street</th><th>Street No.</th><th>Phone No.</th></tr>";
+        echo "<tr><th>City</th><th>Street</th><th>Street No.</th><th>Phone No.</th><th>Extra Info</th></tr>";
         
         class TableRows extends RecursiveIteratorIterator { 
             function __construct($it) { 
@@ -30,10 +31,22 @@
             }
             
             function endChildren() { 
+                global $button; 
+                $button = "<td><button class=\"extra\">Extra Info</button></td>";
+                echo $button; 
+                foreach ($button as $i) {
+                    $i ->addAttribute("id", $button[$i]);
+                }
                 echo "</tr>" . "\n";
             }
         }
         
+        // echo "<script> 
+        //             var buttons = document.getElementsByClassName(\"extra\")
+        //             for (var i = 0; i<= buttons.length; i++) {
+        //                 buttons[i].setAttribute(id, i)
+        //             }
+        //             </script>";
         
         $servername = "localhost";
         $username = "root";
@@ -45,7 +58,7 @@
             // set the PDO error mode to exception
             $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
             echo "Connected successfully"; 
-            $stmt = $conn->prepare("SELECT city, addressLine1, addressLine2, phone  FROM offices");
+            $stmt = $conn->prepare("SELECT city, addressLine1, addressLine2, phone FROM offices");
             $stmt->execute();
             
             // set the resulting array to associative
