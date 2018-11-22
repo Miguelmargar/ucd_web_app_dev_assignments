@@ -13,19 +13,11 @@
     </header>
     
     <main>
-        <span>SELECT THE AMOUNT OF PAYMENTS YOU WANT TO DISPLAY:</span>
-            <form method="post" action="">
-                <select name="vals">
-                    <option value="20" selected>20</option>
-                    <option value="40">40</option>
-                    <option value="60">60</option>
-                </select>
-                <input type="submit" name="submit"/>
-            </form>
+        
         <?php
-        $val = $_POST['vals'];
+        $get_id = $_GET['id'];
         echo "<table>";
-        echo "<tr class=\"top\"><th>Check Number</th><th>Payment Date</th><th>Amount</th><th>Customer No.</th><th>Extra Info</th></tr>";
+        echo "<tr class=\"top\"><th>Phone Number</th><th>Sales Rep</th><th>Credit Limit</th><th>Payments</th></tr>";
         
        
         $servername = "localhost";
@@ -38,7 +30,7 @@
             // set the PDO error mode to exception
             $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
             // echo "Connected successfully"; 
-            $stmt = $conn->query("SELECT * FROM payments");
+            $stmt = $conn->query("SELECT customers.phone, customers.salesRepEmployeeNumber, customers.creditLimit, payments.amount FROM payments, customers WHERE customers.customerNumber = payments.customerNumber and payments.customerNumber = '$get_id'");
             
             // set the resulting array to associative
             $stmt->setFetchMode(PDO::FETCH_ASSOC);
@@ -50,18 +42,13 @@
         }
         
         
-        $start = 1;
         while ($r = $stmt->fetch()) {
-            if ($start <= $val) {
                     echo "<tr>";
-                    echo    "<td>".$r['checkNumber']."</td>";
-                    echo    "<td>".$r['paymentDate']."</td>";
+                    echo    "<td>".$r['phone']."</td>";
+                    echo    "<td>".$r['salesRepEmployeeNumber']."</td>";
+                    echo    "<td>".$r['creditLimit']."</td>";
                     echo    "<td>".$r['amount']."</td>";
-                    echo    "<td>".$r['customerNumber']."</td>";
-                    echo    "<td class=\"button1\"><a href='paymentsExtra.php?id=".$r['customerNumber']."'><button class=\"button2\">Extra Info</button></a></td>";
                     echo "</tr>";
-            }
-            $start++;
         }
         echo "</table>";
         
