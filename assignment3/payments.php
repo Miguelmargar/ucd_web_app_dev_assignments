@@ -13,14 +13,21 @@
     </header>
     
     <main>
-        
+        <span>SELECT THE AMOUNT OF PAYMENTS YOU WANT TO DISPLAY:</span>
+            <form method="post" action="">
+                <select name="vals">
+                    <option value="20" selected>20</option>
+                    <option value="40">40</option>
+                    <option value="60">60</option>
+                </select>
+                <input type="submit" name="submit"/>
+            </form>
         <?php
+        $val = $_POST['vals'];
         echo "<table>";
         echo "<tr class=\"top\"><th>Check Number</th><th>Payment Date</th><th>Amount</th><th>Customer No.</th><th>Extra Info</th></tr>";
         
        
-        
-        
         $servername = "localhost";
         $username = "root";
         $password = "";
@@ -45,7 +52,7 @@
         
         $start = 1;
         while ($r = $stmt->fetch()) {
-            if ($start <= 20) {
+            if ($start <= $val) {
                     echo "<tr>";
                     echo    "<td>".$r['checkNumber']."</td>";
                     echo    "<td>".$r['paymentDate']."</td>";
