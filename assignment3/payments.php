@@ -25,7 +25,7 @@
         <?php
         $val = $_POST['vals'];
         echo "<table>";
-        echo "<tr class=\"top\"><th>Check Number</th><th>Payment Date</th><th>Amount</th><th>Customer No.</th><th>Extra Info</th></tr>";
+        echo "<tr class=\"top\"><th>Check Number</th><th>Payment Date</th><th>Amount</th><th>Customer No.</th></tr>";
         
        
         $servername = "localhost";
@@ -57,8 +57,7 @@
                     echo    "<td>".$r['checkNumber']."</td>";
                     echo    "<td>".$r['paymentDate']."</td>";
                     echo    "<td>".$r['amount']."</td>";
-                    echo    "<td>".$r['customerNumber']."</td>";
-                    echo    "<td class=\"button1\"><a href='paymentsExtra.php?id=".$r['customerNumber']."'><button class=\"button2\">Extra Info</button></a></td>";
+                    echo    "<td><a href='paymentsExtra.php?id=".$r['customerNumber']."'>".$r['customerNumber']."</a></td>";
                     echo "</tr>";
             }
             $start++;
