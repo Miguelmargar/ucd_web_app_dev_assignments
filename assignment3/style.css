@@ -39,6 +39,7 @@ table {
 td, th {
     border: 1px solid #ddd;
     padding: 8px;
+    text-align: justify;
 }
 
 tr:nth-child(even){background-color: #f2f2f2;}
@@ -49,6 +50,18 @@ th {
     padding-top: 12px;
     padding-bottom: 12px;
     text-align: left;
-    background-color: #4CAF50;
+    background-color: #5b5353;
     color: white;
 }
+
+.button1 {
+    text-align: center;
+}
+
+.button2 {
+    width: 80%;
+}
+
+
+
+

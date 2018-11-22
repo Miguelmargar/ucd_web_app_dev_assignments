@@ -15,7 +15,7 @@
     <main>
         <?php
         echo "<table>";
-        echo "<tr><th>Product Line</th><th>Description</th></tr>";
+        echo "<tr class=\"top\"><th>Product Line</th><th>Description</th></tr>";
         
         class TableRows extends RecursiveIteratorIterator { 
             function __construct($it) { 
@@ -45,7 +45,7 @@
             $conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
             // set the PDO error mode to exception
             $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-            echo "Connected successfully"; 
+            // echo "Connected successfully"; 
             $stmt = $conn->prepare("SELECT productLine, textDescription FROM productlines");
             $stmt->execute();
             

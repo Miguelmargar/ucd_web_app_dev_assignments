@@ -13,27 +13,12 @@
     </header>
     
     <main>
+        
         <?php
         echo "<table>";
-        echo "<tr><th>Customer Number</th><th>Check Number</th><th>Payment Date</th><th>Amount</th></tr>";
+        echo "<tr class=\"top\"><th>Check Number</th><th>Payment Date</th><th>Amount</th><th>Customer No.</th><th>Extra Info</th></tr>";
         
-        class TableRows extends RecursiveIteratorIterator { 
-            function __construct($it) { 
-                parent::__construct($it, self::LEAVES_ONLY); 
-            }
-        
-            function current() {
-                return "<td>" . parent::current(). "</td>";
-            }
-            
-            function beginChildren() { 
-                echo "<tr>"; 
-            }
-            
-            function endChildren() { 
-                echo "</tr>" . "\n";
-            }
-        }
+       
         
         
         $servername = "localhost";
@@ -45,26 +30,37 @@
             $conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
             // set the PDO error mode to exception
             $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-            echo "Connected successfully"; 
-            $stmt = $conn->prepare("SELECT customerNumber, checkNumber, paymentDate, amount  FROM payments");
-            $stmt->execute();
+            // echo "Connected successfully"; 
+            $stmt = $conn->query("SELECT * FROM payments");
             
             // set the resulting array to associative
-            $result = $stmt->setFetchMode(PDO::FETCH_ASSOC);
-            
-            foreach(new TableRows(new RecursiveArrayIterator($stmt->fetchAll())) as $k=>$v) { 
-                echo $v;
-            }
+            $stmt->setFetchMode(PDO::FETCH_ASSOC);
             
         }
-            
+        
         catch(PDOException $e) {
             echo "Connection failed: " . $e->getMessage();
         }
         
-        $conn = null;
+        
+        $start = 1;
+        while ($r = $stmt->fetch()) {
+            if ($start <= 20) {
+                    echo "<tr>";
+                    echo    "<td>".$r['checkNumber']."</td>";
+                    echo    "<td>".$r['paymentDate']."</td>";
+                    echo    "<td>".$r['amount']."</td>";
+                    echo    "<td>".$r['customerNumber']."</td>";
+                    echo    "<td class=\"button1\"><a href='paymentsExtra.php?id=".$r['customerNumber']."'><button class=\"button2\">Extra Info</button></a></td>";
+                    echo "</tr>";
+            }
+            $start++;
+        }
         echo "</table>";
+        
+        $conn = null;
         ?>
+        
     </main>
     
     <footer>
@@ -73,3 +69,5 @@
     
 </body>
 </html>
+
+

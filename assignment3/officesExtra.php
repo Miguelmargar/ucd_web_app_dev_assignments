@@ -15,12 +15,13 @@
     <main>
         
         <?php
+        
+        $get_id = $_GET['id'];
+        
         echo "<table>";
-        echo "<tr class=\"top\"><th>City</th><th>Street</th><th>Street No.</th><th>Phone No.</th><th>Extra Info</th></tr>";
+        echo "<tr class=\"top\"><th>First Name</th><th>Last Name</th><th>Job Title</th><th>Email</th></tr>";
         
        
-        
-        
         $servername = "localhost";
         $username = "root";
         $password = "";
@@ -31,7 +32,7 @@
             // set the PDO error mode to exception
             $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
             // echo "Connected successfully"; 
-            $stmt = $conn->query("SELECT * FROM offices");
+            $stmt = $conn->query("SELECT * FROM employees WHERE officeCode = '$get_id'");
             
             // set the resulting array to associative
             $stmt->setFetchMode(PDO::FETCH_ASSOC);
@@ -43,14 +44,12 @@
         }
         
         
-        
         while ($r = $stmt->fetch()) {
                     echo "<tr>";
-                    echo    "<td>".$r['city']."</td>";
-                    echo    "<td>".$r['addressLine1']."</td>";
-                    echo    "<td>".$r['addressLine2']."</td>";
-                    echo    "<td>".$r['phone']."</td>";
-                    echo    "<td class=\"button1\"><a href='officesExtra.php?id=".$r['officeCode']."'><button class=\"button2\">Extra Info</button></a></td>";
+                    echo    "<td>".$r['firstName']."</td>";
+                    echo    "<td>".$r['lastName']."</td>";
+                    echo    "<td>".$r['jobTitle']."</td>";
+                    echo    "<td>".$r['email']."</td>";
                     echo "</tr>";
         }
         echo "</table>";
