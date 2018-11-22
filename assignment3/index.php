@@ -14,6 +14,9 @@
     
     <main>
         <?php
+        
+        echo "<h2 class=\"center\">PRODUCT CATEGORIES</h2>";
+        
         echo "<table>";
         echo "<tr class=\"top\"><th>Product Line</th><th>Description</th></tr>";
         
@@ -64,6 +67,8 @@
         
         $conn = null;
         echo "</table>";
+        
+        echo "<h2 class=\"center\">PRODUCT CATEGORIES</h2>";
         ?>
     </main>
     

@@ -16,6 +16,9 @@
         
         <?php
         $get_id = $_GET['id'];
+        
+        echo "<h2 class=\"center\">CUSTOMER DETAILS</h2>";
+        
         echo "<table>";
         echo "<tr class=\"top\"><th>Phone Number</th><th>Sales Rep</th><th>Credit Limit</th><th>Payments</th></tr>";
         
@@ -41,7 +44,7 @@
             echo "Connection failed: " . $e->getMessage();
         }
         
-        
+        $total_payment = 0;
         while ($r = $stmt->fetch()) {
                     echo "<tr>";
                     echo    "<td>".$r['phone']."</td>";
@@ -49,10 +52,17 @@
                     echo    "<td>".$r['creditLimit']."</td>";
                     echo    "<td>".$r['amount']."</td>";
                     echo "</tr>";
+                    $total_payment += $r['amount'];
         }
         echo "</table>";
         
+        echo "<h2 class=\"center\">The total payments from this customer number ".$get_id." is:</h2>";
+        echo "<h1 class=\"center\">€".$total_payment."<h1>";
+        
         $conn = null;
+        
+        echo "<h2 class=\"center\">CUSTOMER DETAILS</h2>";
+        
         ?>
         
     </main>

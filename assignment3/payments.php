@@ -13,8 +13,10 @@
     </header>
     
     <main>
-        <span>SELECT THE AMOUNT OF PAYMENTS YOU WANT TO DISPLAY:</span>
-            <form method="post" action="">
+        <h2 class="center">PAYMENTS</h2>
+        
+        <h3 class="center">SELECT THE AMOUNT OF PAYMENTS YOU WANT TO DISPLAY:</h3>
+            <form class="center" method="post" action="">
                 <select name="vals">
                     <option value="20" selected>20</option>
                     <option value="40">40</option>
@@ -22,8 +24,14 @@
                 </select>
                 <input type="submit" name="submit"/>
             </form>
+            <br>
+            <script>
+                // function onload():
+                
+            </script>
         <?php
         $val = $_POST['vals'];
+        
         echo "<table>";
         echo "<tr class=\"top\"><th>Check Number</th><th>Payment Date</th><th>Amount</th><th>Customer No.</th></tr>";
         
@@ -65,6 +73,9 @@
         echo "</table>";
         
         $conn = null;
+        
+        echo "<h2 class=\"center\">PAYMENTS</h2>";
+        
         ?>
         
     </main>

@@ -15,10 +15,12 @@
     <main>
         
         <?php
+        
+        echo "<h2 class=\"center\">OFFICES</h2>";
+        
         echo "<table>";
         echo "<tr class=\"top\"><th>City</th><th>Street</th><th>Street No.</th><th>Phone No.</th><th>Extra Info</th></tr>";
         
-       
         
         
         $servername = "localhost";
@@ -50,12 +52,15 @@
                     echo    "<td>".$r['addressLine1']."</td>";
                     echo    "<td>".$r['addressLine2']."</td>";
                     echo    "<td>".$r['phone']."</td>";
-                    echo    "<td class=\"button1\"><a href='officesExtra.php?id=".$r['officeCode']."'><button class=\"button2\">Extra Info</button></a></td>";
+                    echo    "<td class=\"button1\"><a href='officesExtra.php?id=".$r['officeCode']."&office=".$r['city']."'><button class=\"button2\">Extra Info</button></a></td>";
                     echo "</tr>";
         }
         echo "</table>";
         
         $conn = null;
+        
+        echo "<h2 class=\"center\">OFFICES</h2>";
+        
         ?>
         
     </main>

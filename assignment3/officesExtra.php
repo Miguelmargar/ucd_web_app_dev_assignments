@@ -17,6 +17,8 @@
         <?php
         
         $get_id = $_GET['id'];
+        $get_city = $_GET['office'];
+        echo "<h2 class=\"center\">STAFF IN OUR ".$get_city." OFFICE</h2>";
         
         echo "<table>";
         echo "<tr class=\"top\"><th>First Name</th><th>Last Name</th><th>Job Title</th><th>Email</th></tr>";
@@ -55,6 +57,7 @@
         echo "</table>";
         
         $conn = null;
+        echo "<h2 class=\"center\">STAFF IN OUR ".$get_city." OFFICE</h2>";
         ?>
         
     </main>
