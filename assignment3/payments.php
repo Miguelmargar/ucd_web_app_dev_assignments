@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="style.css" type="text/css" />
+    
     <title>Document</title>
 </head>
 <body>
@@ -16,21 +17,24 @@
         <h2 class="center">PAYMENTS</h2>
         
         <h3 class="center">SELECT THE AMOUNT OF PAYMENTS YOU WANT TO DISPLAY:</h3>
+        
             <form class="center" method="post" action="">
                 <select name="vals">
                     <option value="20" selected>20</option>
                     <option value="40">40</option>
                     <option value="60">60</option>
                 </select>
-                <input type="submit" name="submit"/>
+                <input id="select" type="submit" name="submit"/>
             </form>
             <br>
-            <script>
-                // function onload():
-                
-            </script>
+            
         <?php
-        $val = $_POST['vals'];
+        if (!(isset($_POST['vals']))) {
+            $val = 20;
+        } else {
+            $val = $_POST['vals'];
+        }
+        
         
         echo "<table>";
         echo "<tr class=\"top\"><th>Check Number</th><th>Payment Date</th><th>Amount</th><th>Customer No.</th></tr>";
