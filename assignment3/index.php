@@ -9,14 +9,15 @@
 </head>
 <body>
     <header>
-        <?php include "navbar.php" ?>    
+        <!--navbar-->
+        <?php include "navbar.php" ?>  
     </header>
     
     <main>
         <?php
         
         echo "<h2 class=\"center\">PRODUCT CATEGORIES</h2>";
-        
+        // create table structure------------------------------------------------------
         echo "<table>";
         echo "<tr class=\"top\"><th>Product Line</th><th>Description</th></tr>";
         
@@ -38,7 +39,7 @@
             }
         }
         
-        
+        // Make connection to DB--------------------------------------------
         $servername = "localhost";
         $username = "root";
         $password = "";
@@ -60,12 +61,13 @@
             }
             
         }
-            
+           // message if connection error-----------------------------------------  
         catch(PDOException $e) {
             echo "Connection failed: " . $e->getMessage();
         }
-        
+        // Close connection---------------------------------------
         $conn = null;
+        // close table --------------------------------------
         echo "</table>";
         
         echo "<h2 class=\"center\">PRODUCT CATEGORIES</h2>";
@@ -73,6 +75,7 @@
     </main>
     
     <footer>
+        <!--navbar-->
         <?php include "navbar.php" ?>
     </footer>
     

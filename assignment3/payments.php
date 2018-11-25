@@ -10,14 +10,15 @@
 </head>
 <body>
     <header>
-        <?php include "navbar.php" ?>    
+        <!--navbar-->
+        <?php include "navbar.php"?>    
     </header>
     
     <main>
         <h2 class="center">PAYMENTS</h2>
         
         <h3 class="center">SELECT THE AMOUNT OF PAYMENTS YOU WANT TO DISPLAY:</h3>
-        
+        <!--form --------------------------------------------------->
             <form class="center" method="post" action="">
                 <select name="vals">
                     <option value="20" selected>20</option>
@@ -29,17 +30,18 @@
             <br>
             
         <?php
+        // condition for default number of payments to be shown---------------------------
         if (!(isset($_POST['vals']))) {
             $val = 20;
         } else {
             $val = $_POST['vals'];
         }
         
-        
+        // create table structure------------------------------------------------------
         echo "<table>";
         echo "<tr class=\"top\"><th>Check Number</th><th>Payment Date</th><th>Amount</th><th>Customer No.</th></tr>";
         
-       
+       // Make connection to DB--------------------------------------------
         $servername = "localhost";
         $username = "root";
         $password = "";
@@ -56,26 +58,32 @@
             $stmt->setFetchMode(PDO::FETCH_ASSOC);
             
         }
-        
+        // message if connection error-----------------------------------------
         catch(PDOException $e) {
             echo "Connection failed: " . $e->getMessage();
         }
         
-        
+        // populate table------------------------------------------------------
+        // counter
         $start = 1;
+        // while there is information fo
         while ($r = $stmt->fetch()) {
+            // if the counter is the value passed by the form print up to the value passed - within loop
             if ($start <= $val) {
                     echo "<tr>";
                     echo    "<td>".$r['checkNumber']."</td>";
                     echo    "<td>".$r['paymentDate']."</td>";
                     echo    "<td>".$r['amount']."</td>";
-                    echo    "<td><a href='paymentsExtra.php?id=".$r['customerNumber']."'>".$r['customerNumber']."</a></td>";
+                    echo    "<td><a class=\"click\" href='paymentsExtra.php?id=".$r['customerNumber']."'>".$r['customerNumber']."</a></td>";
                     echo "</tr>";
             }
+            // up the value of counter by one when succesfull loop
             $start++;
         }
+        // close table --------------------------------------
         echo "</table>";
         
+        // Close connection---------------------------------------
         $conn = null;
         
         echo "<h2 class=\"center\">PAYMENTS</h2>";
@@ -85,7 +93,8 @@
     </main>
     
     <footer>
-        <?php include "navbar.php" ?>
+        <!--navbar-->
+        <?php include "navbar.php"?>
     </footer>
     
 </body>

@@ -9,20 +9,24 @@
 </head>
 <body>
     <header>
+        <!--navbar-->
         <?php include "navbar.php" ?>    
     </header>
     
     <main>
         
         <?php
+        // get information from url--------------------------------------
         $get_id = $_GET['id'];
         
-        echo "<h2 class=\"center\">CUSTOMER DETAILS</h2>";
+        // title over table----------------------------------------------
+        echo "<h2 class=\"center\">CUSTOMER NUMBER ".$get_id." DETAILS</h2>";
         
+        // create table structure------------------------------------------------------
         echo "<table>";
-        echo "<tr class=\"top\"><th>Phone Number</th><th>Sales Rep</th><th>Credit Limit</th><th>Payments</th></tr>";
+        echo "<tr class=\"top\"><th>Phone Number</th><th>Sales Rep</th><th>Credit Limit</th></tr>";
         
-       
+       // Make connection to DB--------------------------------------------
         $servername = "localhost";
         $username = "root";
         $password = "";
@@ -33,32 +37,49 @@
             // set the PDO error mode to exception
             $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
             // echo "Connected successfully"; 
-            $stmt = $conn->query("SELECT customers.phone, customers.salesRepEmployeeNumber, customers.creditLimit, payments.amount FROM payments, customers WHERE customers.customerNumber = payments.customerNumber and payments.customerNumber = '$get_id'");
+            $stmt = $conn->query("SELECT customers.phone, customers.salesRepEmployeeNumber, customers.creditLimit FROM customers WHERE customers.customerNumber = '$get_id'");
             
             // set the resulting array to associative
             $stmt->setFetchMode(PDO::FETCH_ASSOC);
             
+            // second query for payment amounts for each customer
+            $stmt2 = $conn->query("SELECT amount FROM payments WHERE customerNumber = '$get_id'");
+            
+            // set the resulting array to associative
+            $stmt2->setFetchMode(PDO::FETCH_ASSOC);
+            
         }
-        
+        // message if connection error-----------------------------------------
         catch(PDOException $e) {
             echo "Connection failed: " . $e->getMessage();
         }
         
-        $total_payment = 0;
+        // create table structure------------------------------------------------------
         while ($r = $stmt->fetch()) {
                     echo "<tr>";
                     echo    "<td>".$r['phone']."</td>";
                     echo    "<td>".$r['salesRepEmployeeNumber']."</td>";
                     echo    "<td>".$r['creditLimit']."</td>";
-                    echo    "<td>".$r['amount']."</td>";
                     echo "</tr>";
-                    $total_payment += $r['amount'];
         }
+        // close table --------------------------------------
         echo "</table>";
         
-        echo "<h2 class=\"center\">The total payments from this customer number ".$get_id." is:</h2>";
+        // enumerate all amounts by specified customer ---------------------------------------
+        echo "<h2 class=\"center\">The payments made by customer number ".$get_id." so far are:</h2>";
+        echo "<ul class\"center\">";
+        $total_payment = 0;
+        while ($i = $stmt2->fetch()) {
+            echo "<li class=\"amounts_list\"><h2>€".$i['amount']."</h2></li>";
+            $total_payment += $i['amount'];
+        }
+        echo "</ul>";
+        
+        // display the total payments by the customer selected in payments.php-----------------
+        echo "<h2 class=\"center\">The total payments from customer number ".$get_id." is:</h2>";
         echo "<h1 class=\"center\">€".$total_payment."<h1>";
         
+        // Close connection---------------------------------------
         $conn = null;
         
         echo "<h2 class=\"center\">CUSTOMER DETAILS</h2>";
@@ -68,10 +89,9 @@
     </main>
     
     <footer>
+        <!--navbar-->
         <?php include "navbar.php" ?>
     </footer>
     
 </body>
 </html>
-
-

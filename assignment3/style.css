@@ -1,5 +1,5 @@
 /*NAVBAR--------------------------------------------------*/
-ul {
+.navul {
     font-size: 25px;
     list-style-type: none;
     margin: 0;
@@ -8,7 +8,7 @@ ul {
     background-color: #333;
 }
 
-li {
+.navli {
     float: left;
 }
 
@@ -62,10 +62,24 @@ th {
     width: 80%;
 }
 
+.click:link, .click:visited, .click:active {
+    color: black;
+}
+
+.click:hover {
+    color: red;
+}
+
 /*General--------------------------------------------------*/
 .center {
     text-align: center;
 }
+
+.amounts_list {
+    list-style-type: none;
+    text-align: center;
+}
+
 
 
 
