@@ -66,18 +66,18 @@
         echo "</table>";
         
         // enumerate all amounts by specified customer ---------------------------------------
-        echo "<h2 class=\"center\">The payments made by customer number ".$get_id." so far are:</h2>";
+        echo "<h3 class=\"center\">The payments made by customer number ".$get_id." so far are:</h3>";
         echo "<div class=\"center\">";
         $total_payment = 0;
         while ($i = $stmt2->fetch()) {
-            echo "<div class=\"amounts\"><h2>- €".$i['amount']."</h2></div>";
+            echo "<div class=\"amounts\"><h3>- €".$i['amount']."</h3></div>";
             $total_payment += $i['amount'];
         }
         echo "</div>";
         
         // display the total payments by the customer selected in payments.php-----------------
-        echo "<h2 class=\"center\">The total payments from customer number ".$get_id." is:</h2>";
-        echo "<h1 class=\"center\">€".$total_payment."<h1>";
+        echo "<h3 class=\"center\">The total payments from customer number ".$get_id." is:</h3>";
+        echo "<h2 class=\"center\">€".$total_payment."<h2>";
         
         // Close connection---------------------------------------
         $conn = null;
