@@ -67,13 +67,13 @@
         
         // enumerate all amounts by specified customer ---------------------------------------
         echo "<h2 class=\"center\">The payments made by customer number ".$get_id." so far are:</h2>";
-        echo "<ul class\"center\">";
+        echo "<div class=\"center\">";
         $total_payment = 0;
         while ($i = $stmt2->fetch()) {
-            echo "<li class=\"amounts_list\"><h2>€".$i['amount']."</h2></li>";
+            echo "<div class=\"amounts\"><h2>- €".$i['amount']."</h2></div>";
             $total_payment += $i['amount'];
         }
-        echo "</ul>";
+        echo "</div>";
         
         // display the total payments by the customer selected in payments.php-----------------
         echo "<h2 class=\"center\">The total payments from customer number ".$get_id." is:</h2>";
