@@ -76,9 +76,8 @@ th {
 }
 
 .amounts {
-    display: inline-block;
-    text-align: center;
-    padding: 0px 15px 10px 15px; 
+    width: 20%;
+    margin: auto;
 }
 
 body {
