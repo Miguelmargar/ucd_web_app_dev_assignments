@@ -1,6 +1,7 @@
 <link rel="stylesheet" href="style.css" type="text/css" />
 
 <?php
+
 // navbar structure----------------------------------------
 echo    "<ul class=\"navul\">";
 echo        "<li class=\"navli\"><a href=\"index.php\">Home</a></li>";

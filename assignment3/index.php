@@ -9,12 +9,18 @@
 </head>
 <body>
     <header>
-        <!--navbar-->
+        <!--navbar------------------------------>
         <?php include "navbar.php" ?>  
     </header>
     
     <main>
         <?php
+        // Error handler function
+        function customError($errno, $errstr) {
+            echo "<b>Error:</b> [$errno] $errstr";
+        }
+        // Set error handler
+        set_error_handler("customError");
         
         echo "<h2 class=\"center\">PRODUCT CATEGORIES</h2>";
         // create table structure------------------------------------------------------
@@ -75,7 +81,7 @@
     </main>
     
     <footer>
-        <!--navbar-->
+        <!--navbar----------------------------------------->
         <?php include "navbar.php" ?>
     </footer>
     

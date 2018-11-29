@@ -30,6 +30,13 @@
             <br>
             
         <?php
+        // Error handler function
+        function customError($errno, $errstr) {
+            echo "<b>Error:</b> [$errno] $errstr";
+        }
+        // Set error handler
+        set_error_handler("customError");
+        
         // condition for default number of payments to be shown---------------------------
         if (!(isset($_POST['vals']))) {
             $val = 20;

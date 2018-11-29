@@ -16,6 +16,13 @@
     <main>
         
         <?php
+        // Error handler function
+        function customError($errno, $errstr) {
+            echo "<b>Error:</b> [$errno] $errstr";
+        }
+        // Set error handler
+        set_error_handler("customError");
+        
         // get information from url--------------------------------------
         $get_id = $_GET['id'];
         $get_city = $_GET['office'];

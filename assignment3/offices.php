@@ -16,6 +16,12 @@
     <main>
         
         <?php
+        // Error handler function
+        function customError($errno, $errstr) {
+            echo "<b>Error:</b> [$errno] $errstr";
+        }
+        // Set error handler
+        set_error_handler("customError");
         
         echo "<h2 class=\"center\">OFFICES</h2>";
         // create table structure------------------------------------------------------
